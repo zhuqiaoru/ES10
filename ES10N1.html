@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(name,basePay,bonus){
+                this.name=name;
+                this.basePay=basePay;
+                this.bonus=bonus;
+            }
+            [Symbol.iterator](){
+                return Object.entries(this)[Symbol.iterator]();
+             }
+        }
+        let emp1=new Employee('zhang',8000,3000);
+        for (let ent of emp1){
+            console.log(...ent);
+        }
+        let emp2=new Employee('wang',7500,3200);
+        let arr=[...emp2];
+        console.log(...arr);
+    </script>
+</body>
+</html>
